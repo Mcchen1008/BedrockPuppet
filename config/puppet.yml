@@ -1,0 +1,37 @@
+# config/puppet.yml — BedrockPuppet 配置文件
+
+# 端口配置
+ports:
+  websocket: 8000    # ws 模块端口（BDS 连接此端口）
+  http_api: 8001     # http_api 模块端口（外部服务连接此端口）
+
+# HTTP API 配置
+api:
+  listen: "0.0.0.0:8001"
+  api_key: ""        # 设置 API Key 启用认证，为空则不启用
+
+# 数据记录开关
+data_logging:
+  chat: true         # 玩家聊天
+  join: true         # 进出记录
+  death: true        # 死亡记录
+  kill: true         # 击杀记录
+  achievement: true  # 成就记录
+  item: true         # 物品记录
+  command: true      # 命令记录
+  block: true        # 方块记录
+
+# 日志配置
+logging:
+  level: "info"      # 日志级别: debug, info, warn, error
+  file: "logs/puppet.log"
+
+# BDS 服务器配置
+bds:
+  path: "server/bedrock_server"   # BDS 可执行文件路径
+  args: ""                        # 额外启动参数
+
+# Webhook 配置（可选）
+webhook:
+  timeout: 5         # Webhook 请求超时（秒）
+  retry: 3           # 失败重试次数
